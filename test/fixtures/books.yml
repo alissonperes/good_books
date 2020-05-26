@@ -3,11 +3,9 @@
 one:
   title: MyString
   author: MyString
-  edition: 1
   slug: MyString
 
 two:
   title: MyString
   author: MyString
-  edition: 1
   slug: MyString
