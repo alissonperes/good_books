@@ -2,5 +2,5 @@ class ReviewSerializer
   include FastJsonapi::ObjectSerializer
   attributes :title, :description, :score, :book_id
 
-  has_many :books
+  belongs_to :book
 end
