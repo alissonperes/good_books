@@ -19,10 +19,6 @@ const Books = () => {
 
   return (
     <div className="home">
-      <div className="header">
-        <h1>Books reviews</h1>
-        <span>Honest reviews</span>
-      </div>
       <div className="books-container">{grid}</div>
     </div>
   );

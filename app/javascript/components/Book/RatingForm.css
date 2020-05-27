@@ -1,0 +1,22 @@
+.rating-form {
+  width: 40%;
+  background: #000;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  color: #fff;
+}
+
+.new-rating {
+  margin: 1.5rem 3rem 0;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-item {
+  margin: 2rem 0;
+}
