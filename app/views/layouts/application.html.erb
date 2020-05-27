@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GoodBooks</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'index' %>
   </head>
 
   <body>
+    <div class="header">
+      <h1>Books reviews</h1>
+      <span>Honest reviews</span>
+    </div>
     <%= yield %>
   </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Document</title>
+</head>
+<body>
+
+</body>
 </html>
