@@ -1,26 +1,43 @@
 import React from "react";
 import { BroweserRouter as Router, Link } from "react-router-dom";
-import "./Book.css";
+import styled from "styled-components";
+
+const BookCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 3px outset;
+  margin: 2rem auto;
+  padding: 1rem 0.4rem;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+const BookTitle = styled.div``;
+const BookAuthor = styled.div``;
+const BookScore = styled.div`
+  font-size: 17px;
+`;
+const BookLink = styled.div``;
 
 const Book = props => {
   return (
-    <div className="book-card">
-      <div className="book-title">
+    <BookCard>
+      <BookTitle>
         <h2>{props.attributes.title}</h2>
-      </div>
-      <div className="book-author">
+      </BookTitle>
+      <BookAuthor>
         <p>{props.attributes.author}</p>
-      </div>
-      <div className="book-score">
+      </BookAuthor>
+      <BookScore>
         <p>
           Rating: {props.attributes.avg_score}
           <span>&#9734;</span>
         </p>
-      </div>
-      <div className="book-link">
+      </BookScore>
+      <BookLink>
         <Link to={`/books/${props.attributes.slug}`}>View book</Link>
-      </div>
-    </div>
+      </BookLink>
+    </BookCard>
   );
 };
 

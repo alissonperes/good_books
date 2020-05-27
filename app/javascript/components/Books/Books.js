@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Book from "./Book";
-import "./Books.css";
+import styled from "styled-components";
+
+const BooksContainer = styled.div`
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-evenly;
+`;
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -19,7 +25,7 @@ const Books = () => {
 
   return (
     <div className="home">
-      <div className="books-container">{grid}</div>
+      <BooksContainer>{grid}</BooksContainer>
     </div>
   );
 };
