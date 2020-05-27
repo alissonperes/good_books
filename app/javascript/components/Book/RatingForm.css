@@ -1,11 +1,12 @@
 .rating-form {
-  width: 40%;
   background: #000;
+  color: #fff;
+  height: 100vh;
+  overflow: auto;
   position: fixed;
   right: 0;
   top: 0;
-  height: 100vh;
-  color: #fff;
+  width: 40vw;
 }
 
 .new-rating {
@@ -15,8 +16,24 @@
 .form-item {
   display: flex;
   justify-content: space-between;
+  margin: 2rem 0;
 }
 
-.form-item {
-  margin: 2rem 0;
+.form-item input {
+  flex-grow: 1;
+  margin-left: 40px;
+}
+
+.form-item textarea {
+  flex-grow: 1;
+  margin-left: 40px;
+}
+
+.form-score {
+  display: flex;
+  justify-content: space-between;
+}
+
+#submit {
+  margin: 0;
 }

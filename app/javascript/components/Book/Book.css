@@ -5,8 +5,22 @@
   margin: 2rem auto;
   padding: 1rem 0.4rem;
   justify-content: space-between;
+  width: 50%;
 }
 
 .main-book {
+  height: calc(100vh - 90px);
+}
+
+.book {
   display: flex;
+  height: 100%;
+  width: 60vw;
+}
+
+.reviews {
+  overflow: auto;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }

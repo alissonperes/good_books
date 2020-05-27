@@ -20,11 +20,12 @@ body {
 }
 
 .header {
-  display: flex;
   align-items: baseline;
-  padding-left: 100px;
   background: #000;
   color: #fff;
+  display: flex;
+  height: 90px;
+  padding-left: 100px;
 }
 
 .header span {

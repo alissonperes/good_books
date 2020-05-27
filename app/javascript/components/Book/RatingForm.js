@@ -24,19 +24,18 @@ const RatingForm = props => {
       </div>
       <div className="form-item">
         <label htmlFor="description">Description</label>
-        <input
-          type="text"
+        <textarea
+          rows="4"
           id="description"
           name="description"
           placeholder="Description"
           required
           onChange={props.handleChange}
-        ></input>
+        ></textarea>
       </div>
-      <div className="form-item">
+      <div className="form-score">
         <input
           type="radio"
-          id="male"
           name="score"
           onChange={props.handleChange}
           value="1"
@@ -45,7 +44,6 @@ const RatingForm = props => {
         <label htmlFor="male">1</label>
         <input
           type="radio"
-          id="female"
           name="score"
           onChange={props.handleChange}
           value="2"
@@ -53,7 +51,6 @@ const RatingForm = props => {
         <label htmlFor="female">2</label>
         <input
           type="radio"
-          id="other"
           name="score"
           onChange={props.handleChange}
           value="3"
@@ -61,7 +58,6 @@ const RatingForm = props => {
         <label htmlFor="other">3</label>
         <input
           type="radio"
-          id="male"
           name="score"
           onChange={props.handleChange}
           value="4"
@@ -69,7 +65,6 @@ const RatingForm = props => {
         <label htmlFor="male">4</label>
         <input
           type="radio"
-          id="male"
           name="score"
           onChange={props.handleChange}
           value="5"

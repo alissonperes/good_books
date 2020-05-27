@@ -17,8 +17,7 @@ const Book = props => {
   });
 
   const bookSlug = props.match.params.slug;
-
-  useEffect(() => {
+  const bookDataFromApi = () => {
     axios
       .get(`/api/v1/books/${slug}`)
       .then(result => {
@@ -26,14 +25,18 @@ const Book = props => {
         setRatings(result.data.included);
       })
       .catch(result => console.log(result));
+  };
+  useEffect(() => {
+    bookDataFromApi();
   }, [book.length]);
 
   const reviews = ratings.map(x => (
-    <li key={x.id}>
+    <section className="review-item" key={x.id}>
+      <hr />
       <h4>{x.attributes.title}</h4>
       <p>{x.attributes.description}</p>
       <span>{x.attributes.score} &#9734;</span>
-    </li>
+    </section>
   ));
 
   const submitedRating = e => {
@@ -46,9 +49,10 @@ const Book = props => {
     };
 
     e.target.reset();
-    submitRating(ratingObject).then(result =>
-      setRatings(prev => [...prev, result])
-    );
+    submitRating(ratingObject).then(result => {
+      setRatings(prev => [...prev, result]);
+      bookDataFromApi();
+    });
   };
 
   const handleChange = e => {
@@ -62,18 +66,18 @@ const Book = props => {
         <div className="book-info">
           <h1>{book.data.attributes.title}</h1>
           <h3>{book.data.attributes.author}</h3>
-          <p>
-            {book.included.length} {pluralize("review", book.included.length)}
-          </p>
-          <p>
-            {book.data.attributes.avg_score}
-            <span>&#9734;</span>
-          </p>
-          <Link to="/">Home</Link>
+          <div className="review-div">
+            <p>
+              {book.included.length} {pluralize("review", book.included.length)}
+            </p>
+            <p>
+              {book.data.attributes.avg_score}
+              <span>&#9734;</span>
+            </p>
+            <Link to="/">Home</Link>
+          </div>
         </div>
-        <div className="reviews">
-          <ul>{reviews}</ul>
-        </div>
+        <div className="reviews">{reviews}</div>
       </div>
       <div className="rating-form">
         <RatingForm
