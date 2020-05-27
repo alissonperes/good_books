@@ -1,14 +1,3 @@
-.rating-form {
-  background: #000;
-  color: #fff;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 40vw;
-}
-
 .new-rating {
   margin: 1.5rem 3rem 0;
 }

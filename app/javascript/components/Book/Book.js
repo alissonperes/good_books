@@ -2,9 +2,44 @@ import React, { useState, useEffect } from "react";
 import { BroweserRouter as Router, Link } from "react-router-dom";
 import axios from "axios";
 import pluralize from "pluralize";
+import styled from "styled-components";
 import submitRating from "../../actions/submitRating";
 import RatingForm from "./RatingForm";
-import "./Book.css";
+
+const MainBook = styled.div`
+  height: calc(100vh - 90px);
+`;
+const BookInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 3px outset;
+  margin: 2rem auto;
+  padding: 1rem 0.4rem;
+  justify-content: space-between;
+  width: 50%;
+`;
+const BookContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 60vw;
+`;
+const ReviewsContainer = styled.div`
+  overflow: auto;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+`;
+
+const RaitingForm = styled.div`
+  background: #000;
+  color: #fff;
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40vw;
+`;
 
 const Book = props => {
   const { slug } = props.match.params;
@@ -31,7 +66,7 @@ const Book = props => {
   }, [book.length]);
 
   const reviews = ratings.map(x => (
-    <section className="review-item" key={x.id}>
+    <section key={x.id}>
       <hr />
       <h4>{x.attributes.title}</h4>
       <p>{x.attributes.description}</p>
@@ -61,12 +96,12 @@ const Book = props => {
   };
 
   return (
-    <div className="main-book">
-      <div className="book">
-        <div className="book-info">
+    <MainBook>
+      <BookContainer>
+        <BookInfo>
           <h1>{book.data.attributes.title}</h1>
           <h3>{book.data.attributes.author}</h3>
-          <div className="review-div">
+          <div>
             <p>
               {book.included.length} {pluralize("review", book.included.length)}
             </p>
@@ -76,17 +111,17 @@ const Book = props => {
             </p>
             <Link to="/">Home</Link>
           </div>
-        </div>
-        <div className="reviews">{reviews}</div>
-      </div>
-      <div className="rating-form">
+        </BookInfo>
+        <ReviewsContainer>{reviews}</ReviewsContainer>
+      </BookContainer>
+      <RaitingForm>
         <RatingForm
           book={book}
           onSubmit={submitedRating}
           handleChange={handleChange}
         />
-      </div>
-    </div>
+      </RaitingForm>
+    </MainBook>
   );
 };
 
