@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Book from "./Book";
 import createBook from "../../actions/createBook";
@@ -24,9 +25,10 @@ const NewBookForm = styled.div`
   left: 3rem;
 `;
 
-const Books = () => {
+const Books = props => {
   const [books, setBooks] = useState([]);
   const [newBook, setNewBook] = useState({});
+  const [redirect, setRedirect] = useState({ redirect: false });
 
   useEffect(() => {
     axios
@@ -39,6 +41,9 @@ const Books = () => {
     e.preventDefault();
     createBook(newBook).then(result => {
       setBooks(prev => [...books, result]);
+      console.log(result.attributes.slug);
+
+      location.href = `/books/${result.attributes.slug}`;
     });
     e.target.reset();
   };
