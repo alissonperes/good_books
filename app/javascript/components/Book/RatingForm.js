@@ -8,6 +8,7 @@ const NewRating = styled.div`
 
 const FormItem = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 2rem 0;
 `;
@@ -19,7 +20,7 @@ const FormScore = styled.div`
 
 const FormInput = styled.input`
   flex-grow: 1;
-  margin-left: 40px;
+  margin-top: 40px;
 `;
 
 const ScoreInput = styled.input``;
@@ -28,7 +29,7 @@ const FormSubmit = styled.input`
 `;
 const FormTextArea = styled.textarea`
   flex-grow: 1;
-  margin-left: 40px;
+  margin-top: 40px;
 `;
 
 const RatingForm = props => {
