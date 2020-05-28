@@ -26,7 +26,7 @@ const NewBookForm = styled.div`
 
 const Books = () => {
   const [books, setBooks] = useState([]);
-  const [newBook, setNewBook] = useState({ title: "", author: "" });
+  const [newBook, setNewBook] = useState({});
 
   useEffect(() => {
     axios
@@ -51,7 +51,7 @@ const Books = () => {
   const grid = books.map(item => {
     return <Book key={item.attributes.title} attributes={item.attributes} />;
   });
-
+  const currentYear = new Date().getFullYear();
   return (
     <BooksHome>
       <NewBookForm>
@@ -72,6 +72,17 @@ const Books = () => {
             name="author"
             required
           />
+          <label htmlFor="year">Year</label>
+          <input
+            type="number"
+            id="year"
+            name="year"
+            min="868"
+            max={currentYear}
+            placeholder="Year"
+            required
+            onChange={handleChange}
+          ></input>
           <input type="submit" value="Add book" />
         </form>
       </NewBookForm>

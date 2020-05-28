@@ -33,12 +33,6 @@ const FormTextArea = styled.textarea`
 `;
 
 const RatingForm = props => {
-  const [newRating, setNewRating] = useState({
-    title: "",
-    description: "",
-    score: 5
-  });
-
   return (
     <NewRating onSubmit={props.onSubmit}>
       <FormItem className="form-item">
@@ -98,7 +92,6 @@ const RatingForm = props => {
           name="score"
           onChange={props.handleChange}
           value="5"
-          checked
         />
         <label htmlFor="score">5</label>
       </FormScore>

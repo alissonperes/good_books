@@ -28,6 +28,9 @@ const Book = props => {
       <BookAuthor>
         <p>{props.attributes.author}</p>
       </BookAuthor>
+      <div>
+        <p>First released: {props.attributes.year}</p>
+      </div>
       <BookScore>
         <p>
           Rating: {props.attributes.avg_score}

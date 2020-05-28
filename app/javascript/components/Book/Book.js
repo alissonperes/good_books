@@ -49,11 +49,7 @@ const Book = props => {
   const { slug } = props.match.params;
   const [book, setBook] = useState({ data: { attributes: {} }, included: [] });
   const [ratings, setRatings] = useState([]);
-  const [newRating, setNewRating] = useState({
-    title: "",
-    description: "",
-    score: 5
-  });
+  const [newRating, setNewRating] = useState({});
 
   const bookSlug = props.match.params.slug;
   const bookDataFromApi = () => {
@@ -105,6 +101,7 @@ const Book = props => {
         <BookInfo>
           <h1>{book.data.attributes.title}</h1>
           <h3>{book.data.attributes.author}</h3>
+          <h5>First released: {book.data.attributes.year}</h5>
           <div>
             <p>
               {book.included.length} {pluralize("review", book.included.length)}

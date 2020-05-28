@@ -10,26 +10,42 @@ books = Book.create([
   {
     title:"Frankenstein",
     author:"Mary Shelly",
+    year: 1818
   },
   {
     title:"Dracula",
     author:"Bram Stoker",
+    year: 1897
   },
   {
     title:"Strange Case of Dr Jekyll and Mr Hyde",
     author:"Robert Louis Stevenson",
+    year: 1886
   },
   {
     title:"The Picture of Dorian Gray",
     author:"Oscar Wilde",
+    year: 1890
   },
   {
     title:"The Shining",
     author:"Stephen King",
+    year: 1980
   },
   {
     title:"The Call of Cthulhu",
     author:" H.P. Lovecraft",
+    year: 1926
+  },
+  {
+    title:"The Brothers Karamazov",
+    author:"Fyodor Dostoevsky",
+    year: 1879
+  },
+  {
+    title:"The 120 Days of Sodom",
+    author:"Marquis de Sade",
+    year: 1785
   },
 ])
 
