@@ -10,6 +10,7 @@ const createBook = async bookInfo => {
     return data;
   } catch (e) {
     alert("Can't add an existing book");
+    throw new Error(e);
   }
 };
 
