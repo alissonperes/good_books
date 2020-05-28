@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Book from "./Book";
+import createBook from "../../actions/createBook";
 import styled from "styled-components";
-
-const BooksContainer = styled.div`
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
-  justify-content: space-evenly;
-`;
 
 const BooksHome = styled.div`
   display: flex;
@@ -15,15 +10,23 @@ const BooksHome = styled.div`
   flex-direction: column;
 `;
 
+const BooksContainer = styled.div`
+  display: grid;
+  margin-top: 3rem;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: space-evenly;
+`;
+
 const NewBookForm = styled.div`
   display: flex;
   position: absolute;
-  top: 0;
+  top: 2rem;
   left: 3rem;
 `;
 
 const Books = () => {
   const [books, setBooks] = useState([]);
+  const [newBook, setNewBook] = useState({ title: "", author: "" });
 
   useEffect(() => {
     axios
@@ -32,6 +35,19 @@ const Books = () => {
       .catch(result => console.log(result));
   }, [books.length]);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    createBook(newBook).then(result => {
+      setBooks(prev => [...books, result]);
+    });
+    e.target.reset();
+  };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setNewBook({ ...newBook, [name]: value });
+  };
+
   const grid = books.map(item => {
     return <Book key={item.attributes.title} attributes={item.attributes} />;
   });
@@ -39,11 +55,23 @@ const Books = () => {
   return (
     <BooksHome>
       <NewBookForm>
-        <form>
-          <label for="title">Title</label>
-          <input type="text" id="title" required />
-          <label for="author">Author</label>
-          <input type="text" id="author" required />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Title</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="title"
+            name="title"
+            required
+          />
+          <label htmlFor="author">Author</label>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="author"
+            name="author"
+            required
+          />
           <input type="submit" value="Add book" />
         </form>
       </NewBookForm>
