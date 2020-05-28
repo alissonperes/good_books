@@ -38,7 +38,6 @@ const Books = () => {
   const handleSubmit = e => {
     e.preventDefault();
     createBook(newBook).then(result => {
-      console.log(result);
       setBooks(prev => [...books, result]);
     });
     e.target.reset();
