@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: {message: "Title already exists" }
   validates :author, presence: true
 
   before_create :slugify
