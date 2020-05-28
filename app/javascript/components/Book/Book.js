@@ -16,7 +16,7 @@ const BookInfo = styled.div`
   margin: 2rem auto;
   padding: 1rem 0.4rem;
   justify-content: space-between;
-  width: 50%;
+  width: 40%;
 `;
 const BookContainer = styled.div`
   display: flex;
@@ -24,16 +24,20 @@ const BookContainer = styled.div`
   width: 60vw;
 `;
 const ReviewsContainer = styled.div`
+  margin-bottom: 2rem;
   overflow: auto;
   padding-top: 1.5rem;
   padding-left: 1rem;
-  margin-bottom: 2rem;
+  width: 40%;
 `;
 
 const RaitingForm = styled.div`
   background: #000;
   color: #fff;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  justify-content: center;
   overflow: auto;
   position: fixed;
   right: 0;

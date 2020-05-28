@@ -9,6 +9,19 @@ const BooksContainer = styled.div`
   justify-content: space-evenly;
 `;
 
+const BooksHome = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+`;
+
+const NewBookForm = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 3rem;
+`;
+
 const Books = () => {
   const [books, setBooks] = useState([]);
 
@@ -24,9 +37,18 @@ const Books = () => {
   });
 
   return (
-    <div className="home">
+    <BooksHome>
+      <NewBookForm>
+        <form>
+          <label for="title">Title</label>
+          <input type="text" id="title" required />
+          <label for="author">Author</label>
+          <input type="text" id="author" required />
+          <input type="submit" value="Add book" />
+        </form>
+      </NewBookForm>
       <BooksContainer>{grid}</BooksContainer>
-    </div>
+    </BooksHome>
   );
 };
 
