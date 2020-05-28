@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import slugify from "slugify";
 const createBook = async bookInfo => {
   try {
     const result = await axios.post("/api/v1/books", {
@@ -9,8 +9,7 @@ const createBook = async bookInfo => {
     const data = result.data.data;
     return data;
   } catch (e) {
-    alert("Can't add an existing book");
-    throw new Error(e);
+    location.href = `/books/${slugify(bookInfo.title, "-").toLowerCase()}`;
   }
 };
 
