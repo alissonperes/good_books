@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import submitRating from "../../actions/submitRating";
 
-const NewRating = styled.div`
+const NewRating = styled.form`
   margin: 1.5rem 3rem 0;
 `;
 
